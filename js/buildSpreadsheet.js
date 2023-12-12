@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-# Universe - Handle Neighborhood Data
+Universe - Handle Neighborhood Data
 --------------------------------------------------------------*/
 
 function updateDataTable(neighborhoodData, aggData) {
