@@ -1,3 +1,7 @@
+
+/*==============================================================
+STYLE MAIN
+==============================================================*/
 /*--------------------------------------------------------------
 General
 --------------------------------------------------------------*/
@@ -320,3 +324,678 @@ Card Styles
   border-bottom: 2px solid #4154f1;
 }
 
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.footer {
+  padding: 20px 0;
+  font-size: 14px;
+  transition: all 0.3s;
+  border-top: 1px solid #cddfff;
+}
+
+.footer .copyright {
+  text-align: center;
+  color: #2b2c42;
+}
+
+.footer .credits {
+  padding-top: 5px;
+  text-align: center;
+  font-size: 13px;
+  color: #2b2c42;
+}
+
+/*==============================================================
+MAP STYLES
+==============================================================*/
+
+/*--------------------------------------------------------------
+# Map Styles
+--------------------------------------------------------------*/
+/* initiate map styles */
+#map {
+  z-index: 1;
+  width: 100%;
+  height: 80vh;
+  border-radius: 4px; /* Rounded corners for the map container */
+}
+
+.toggle-legend {
+  position: absolute;
+  top: 5px;
+  right: 5px; /* Adjusted to move the button a bit to the left */
+  z-index: 1001; /* Higher z-index to be above the mapLegend */
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect to display the mapLegend */
+.toggle-legend:hover + #mapLegend, #mapLegend:hover {
+  display: block; /* Show the legend when hovering over the button or the legend itself */
+  background-color: #f8f9fa;
+}
+
+#mapLegend {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  z-index: 1000;
+  font-family: "Lato", sans-serif;
+  border-radius: 8px;
+}
+
+/* selection alert on map */
+#selectionToolAlert {
+  position: absolute;
+  top: 7vh;
+  left: 4vh;
+  font-size: 0.8rem;
+  font-family: "Lato", sans-serif;
+  z-index: 1000;
+  animation: fadeInOut 4s;
+  padding: 2px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur radius, color */
+  pointer-events: none !important;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  20%, 80% { opacity: 1; }
+}
+
+/* neighborhood label styles */
+.label {
+  font-size: 14px;
+  color: #eef2f4;
+  pointer-events: none !important;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur radius, color */
+}
+
+/* Add this to your CSS file or within a <style> tag in your HTML */
+.click-through-layer {
+  pointer-events: none;
+}
+
+/* Enhanced specificity for the selected row */
+.datatable-table tr.selected-row, 
+.datatable-table tr.selected-row > td {
+    background-color: #ffe69f !important;
+}
+
+/*--------------------------------------------------------------
+# Neighborhood Search Styles
+--------------------------------------------------------------*/
+
+/* Add this CSS to hide the Leaflet Search control's input field */
+.leaflet-control-search {
+  display: none;
+}
+
+/* Make sure your search bar container is relatively positioned */
+.search-bar {
+  position: relative;
+}
+
+/* Style the dropdown to float above other content */
+.search-results-dropdown {
+  position: absolute;
+  top: 100%; /* Position it right below the input field */
+  left: 0;
+  right: 0;
+  z-index: 10; /* Ensure it stacks above other content */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none; /* Initially don't display the dropdown */
+}
+
+/* Display the dropdown when there are options inside */
+.search-bar:has(.search-result-option) .search-results-dropdown {
+  display: block;
+}
+
+/*==============================================================
+DASHBOARD STYLES
+==============================================================*/
+
+/*--------------------------------------------------------------
+# neighborhood search bar
+--------------------------------------------------------------*/
+.search-bar {
+  border: 2px solid #2eca6a;
+  border-radius: 8px; 
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.universe-dropdown {
+  border: 2px solid #4154f1;
+  border-radius: 8px; 
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.input-group .form-select {
+  border-radius: 0.25rem 0 0 0.25rem; /* Rounded corners on the left side only */
+  margin-right: -1px; /* This helps the dropdown blend with the adjacent button */
+}
+
+.input-group .btn {
+  border-radius: 0; /* Square corners for middle buttons */
+}
+
+/* For the last button in the group (toggle off button in this case) */
+.input-group .btn:last-child {
+  border-radius: 0 0.25rem 0.25rem 0; /* Rounded corners on the right side only */
+}
+
+/* Adjust the z-index if you have issues with borders between buttons */
+.input-group .btn, .input-group .form-select {
+  position: relative;
+  z-index: 2;
+}
+
+/* Fix for button active state to overlap the border of the dropdown */
+.input-group .btn.active {
+  z-index: 3;
+}
+
+/*--------------------------------------------------------------
+# toggle universe visibility layers
+--------------------------------------------------------------*/
+
+.universe-dropdown .button-container-universe .icon-btn {
+  color: #eef2f4;
+  padding: 5px 10px;
+  transition: 0.3s;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 8px; /* Rounded corners */
+}
+
+/* Active tile layer button */
+.dashboard .button-container-universe .icon-btn.active {
+  background-color: #4154f1;
+  color: #eef2f4;
+}
+
+/* Inactive tile layer button */
+.dashboard .button-container-universe .icon-btn.inactive {
+  background-color: #eef2f4;
+  color: #6b6b78;
+}
+
+/*--------------------------------------------------------------
+# toggle map view tile containers
+--------------------------------------------------------------*/
+  
+/* Dashboard map button container */
+.dashboard .button-container-tile {
+  border: 2px solid #748e9d; /* Example border */
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.dashboard .button-container-tile .icon-btn {
+  color: #eef2f4;
+  padding: 5px 10px;
+  transition: 0.3s;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 8px; /* Rounded corners */
+}
+
+/* Active tile layer button */
+.dashboard .button-container-tile .icon-btn.active {
+  background-color: #748e9d;
+  color: #eef2f4;
+}
+
+/* Inactive tile layer button */
+.dashboard .button-container-tile .icon-btn.inactive {
+  background-color: #eef2f4;
+  color: #6b6b78;
+}
+
+/*--------------------------------------------------------------
+# toggle layer selection method
+--------------------------------------------------------------*/
+
+/* dashboard map button container */
+.dashboard .button-container-select {
+  border: 2px solid #fec00f; /* Example border */
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+  
+.dashboard .button-container-select .icon-btn {
+  color: #eef2f4;
+  padding: 5px 10px;
+  transition: 0.3s;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 8px; /* Rounded corners */
+}
+  
+/* active tile layer button */
+.dashboard .button-container-select .icon-btn.active {
+  background-color: #fec00f; /* Green background for active button */
+  color: #eef2f4; /* White text for better contrast */
+}
+  
+.dashboard .button-container-select .icon-btn.inactive {
+  background-color: #eef2f4; /* Grey background for inactive button */
+  color: #6b6b78; /* Original color */
+}
+  
+/*--------------------------------------------------------------
+# filter
+--------------------------------------------------------------*/
+
+/* Filter dropdown */
+.dashboard .filter {
+  position: absolute;
+  right: 0px;
+  top: 15px;
+}
+
+.dashboard .filter .icon {
+  color: #aab7cf;
+  padding-right: 20px;
+  padding-bottom: 5px;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
+.dashboard .filter .icon:hover,
+.dashboard .filter .icon:focus {
+  color: #4154f1;
+}
+
+.dashboard .filter .dropdown-header {
+  padding: 8px 15px;
+}
+
+.dashboard .filter .dropdown-header h6 {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #aab7cf;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.dashboard .filter .dropdown-item {
+  padding: 8px 15px;
+}
+
+
+/*==============================================================
+HEADER STYLES
+==============================================================*/
+
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+.logo {
+  line-height: 1;
+}
+
+@media (min-width: 1200px) {
+  .logo {
+    width: 280px;
+  }
+}
+
+.logo img {
+  max-height: 30px;
+  margin-right: 7px;
+}
+
+.logo span {
+  font-size: 26px;
+  font-weight: 700;
+  color: #2b2c42;
+  font-family: "Lato", sans-serif;
+  padding-bottom: 3px;
+  padding-right: 0px;
+}
+
+.header {
+  transition: all 0.5s;
+  z-index: 997;
+  height: 50px;
+  box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+  background-color: #fff;
+  padding-left: 20px;
+}
+
+.header .toggle-sidebar-btn {
+  font-size: 32px;
+  padding-left: 6px;
+  cursor: pointer;
+  color: #2b2c42;
+}
+
+/*--------------------------------------------------------------
+# Header Nav
+--------------------------------------------------------------*/
+.header-nav ul {
+  list-style: none;
+}
+
+.header-nav>ul {
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav .nav-icon {
+  font-size: 22px;
+  color: #2b2c42;
+  margin-right: 25px;
+  position: relative;
+}
+
+.header-nav .badge-number {
+  position: absolute;
+  inset: -2px -5px auto auto;
+  font-weight: normal;
+  font-size: 12px;
+  padding: 3px 6px;
+}
+
+.header-nav .notifications {
+  inset: 8px -15px auto auto !important;
+}
+
+.header-nav .notifications .notification-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 10px;
+  transition: 0.3s;
+}
+
+.header-nav .notifications .notification-item i {
+  margin: 0 20px 0 10px;
+  font-size: 24px;
+}
+
+.header-nav .notifications .notification-item h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.header-nav .notifications .notification-item p {
+  font-size: 13px;
+  margin-bottom: 3px;
+  color: #919191;
+}
+
+.header-nav .notifications .notification-item:hover {
+  background-color: #f6f9ff;
+}
+
+/*==============================================================
+SIDEBAR STYLES
+==============================================================*/
+
+
+/*--------------------------------------------------------------
+# Sidebar
+--------------------------------------------------------------*/
+.sidebar {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  z-index: 996;
+  transition: all 0.3s;
+  padding: 10px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #aab7cf transparent;
+  box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+  background-color: #fff;
+}
+
+@media (max-width: 1199px) {
+  .sidebar {
+    left: -300px;
+  }
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: #fff;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #aab7cf;
+}
+
+@media (min-width: 1200px) {
+
+  #main,
+  #footer {
+    margin-left: 300px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .toggle-sidebar .sidebar {
+    left: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+
+  .toggle-sidebar #main,
+  .toggle-sidebar #footer {
+    margin-left: 0;
+  }
+
+  .toggle-sidebar .sidebar {
+    left: -300px;
+  }
+}
+
+.sidebar-nav {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sidebar-nav li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sidebar-nav .nav-item {
+  margin-bottom: 5px;
+}
+
+.sidebar-nav .nav-heading {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #899bbd;
+  font-weight: 600;
+  margin: 10px 0 5px 15px;
+}
+
+.sidebar-nav .nav-link {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: #2b2c42;
+  transition: 0.3;
+  background: #f6f9ff;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+.sidebar-nav .nav-link i {
+  font-size: 16px;
+  margin-right: 10px;
+  color: #2b2c42;
+}
+
+.sidebar-nav .nav-link.collapsed {
+  color: #2b2c42;
+  background: #fff;
+}
+
+.sidebar-nav .nav-link.collapsed i {
+  color: #899bbd;
+}
+
+.sidebar-nav .nav-link:hover {
+  color: #2b2c42;
+  background: #f6f9ff;
+}
+
+.sidebar-nav .nav-link:hover i {
+  color: #2b2c42;
+}
+
+.sidebar-nav .nav-link .bi-chevron-down {
+  margin-right: 0;
+  transition: transform 0.2s ease-in-out;
+}
+
+.sidebar-nav .nav-link:not(.collapsed) .bi-chevron-down {
+  transform: rotate(180deg);
+}
+
+.sidebar-nav .nav-content {
+  padding: 5px 0 0 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sidebar-nav .nav-content a {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2b2c42;
+  transition: 0.3;
+  padding: 10px 0 10px 40px;
+  transition: 0.3s;
+}
+
+.sidebar-nav .nav-content a i {
+  font-size: 6px;
+  margin-right: 8px;
+  line-height: 0;
+  border-radius: 50%;
+}
+
+.sidebar-nav .nav-content a:hover,
+.sidebar-nav .nav-content a.active {
+  color: #2b2c42;
+}
+
+.sidebar-nav .nav-content a.active i {
+  background-color: #2b2c42;
+}
+
+/*--------------------------------------------------------------
+# info cards
+--------------------------------------------------------------*/
+
+.sidebar-nav .info-card {
+padding-bottom: 1px;
+}
+
+.sidebar-nav .info-card h6 {
+font-size: 24px;
+color: #2b2c42;
+font-weight: 700;
+margin: 0;
+padding: 0;
+}
+
+.sidebar-nav .card-icon {
+font-size: 24px;
+line-height: 0;
+width: 48px;
+height: 48px;
+flex-shrink: 0;
+flex-grow: 0;
+}
+
+.sidebar-nav .id-card {
+padding-top:10px;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100%;
+font-size: 16px;
+color: #eef2f4;
+background: #2b2c42;
+box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-nav .reg-card .card-icon {
+color: #4154f1;
+background: #f6f6fe;
+box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-nav .street-card .card-icon {
+color: #eb701f;
+background: #fceadd;
+box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-nav .targets-card .card-icon {
+color: #d71f2d;
+background: #f9dde0;
+box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-nav .surveys-card .card-icon {
+color: #2eca6a;
+background: #e0f8e9;
+box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+/*==============================================================
+SPREADSHEET STYLES
+==============================================================*/
+
+/*--------------------------------------------------------------
+# Row
+--------------------------------------------------------------*/
+.highlighted-row {
+  background-color: #ffe69f !important; /* Or any color of your choice */
+}
+
+.bold-column {
+  font-weight: bold;
+}
